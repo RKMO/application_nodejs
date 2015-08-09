@@ -15,5 +15,7 @@ setuid <%= @user %>
 <% unless @group.nil? -%>
 setgid <%= @group %>
 <% end -%>
+respawn
+respawn limit 10 5
 chdir <%= @app_dir %>
 exec npm start
